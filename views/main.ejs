@@ -1,0 +1,171 @@
+
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<title> 后台管理 </title>
+</head>
+<body>
+	<div class="modal fade" id="myModal"  >
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">确认删除</h4>
+	            </div>
+	            <div class="modal-body">您确认要删除? 
+	            	<span id="modalclassname">16软件1班</span>
+	            	<span id="modalclassid">2016241331</span>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                <button type="button" class="btn btn-primary" id="modalconfirm">确认删除</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<nav class="navbar navbar-default">
+	  	<div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/home">后台管理</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav">
+		        	<li class="active"><a href="/home">主页</a></li>
+		        	<li><a href="/admin/add">添加文章</a></li>
+		      	</ul>
+			    <ul class="nav navbar-nav navbar-right">    
+			    	<li><a href="javascript:void(0);">您好，管理员</a></li>
+			    </ul>
+		    </div>
+	 	</div>
+	</nav>
+	<ol class="breadcrumb">
+		<li class="active">主页</li>
+	</ol>
+	
+	<!-- <input type="search" placeholder=" 输入班级ID" id="searchClass">
+	<span class="text-danger hide"> &nbsp;找不到该班级！ </span> -->
+
+	<table class="table table-hover">
+	  	<tr id="headtable">
+	  		<th>#</th>
+	  		<th>id</th>
+	  		<th>文章标题</th>
+	  		<th>发布时间</th>
+	  		<th>操作</th> 
+	  	</tr>
+	  	<tr name="2016241331">
+	  		<td> 1 </td>
+	  		<td class="classname"> 发射点发射点 </td>
+	  		<td> 阿斯顿发射点 </td>
+	  		<td> 阿斯顿发射点 </td>
+	  		<td>
+	  			<a href="/update?articleid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 2 </td>
+	  		<td class="classname"> 啊发射点发射点发 </td>
+	  		<td> 啊手动阀手动阀 </td>
+	  		<td> 啊手动阀手动阀 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 3 </td>
+	  		<td class="classname"> 啊啊手动阀手动阀手动阀 </td>
+	  		<td> 啊手动阀手动阀 </td>
+	  		<td> 啊手动阀手动阀 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 4 </td>
+	  		<td class="classname"> 啊大发噶似的发生 </td>
+	  		<td> 阿斯顿发射点皇后i </td>
+	  		<td> 阿斯顿发射点皇后i </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass"  data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 4 </td>
+	  		<td class="classname"> 啊大哥的嘎大概 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 5 </td>
+	  		<td class="classname"> 爱的方式大哥 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 6 </td>
+	  		<td class="classname"> 啊但是更多更多 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 7 </td>
+	  		<td class="classname"> 阿斯顿发生踩踩踩踩踩踩 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td> 8 </td>
+	  		<td class="classname"> 17软件1班 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td> u客户开关和考核结果口语 </td>
+	  		<td>
+	  			<a href="/update?classid=1213"> <button type="button" class="btn btn-success btn-sm">修改</button> </a>
+	  			<button type="button" class="btn btn-warning btn-sm deleteclass" data-toggle="modal" data-target="#myModal">删除</button>
+	  		</td>
+	  	</tr>
+
+	</table>
+
+	<ul class="pager">
+	    <li><a href="/home?page=0">上一页</a></li>
+	    <li><a href="/home?page=1">下一页</a></li>
+	</ul>
+
+
+	<footer class="text-center">
+		<hr/><h5> Copyright © ZQU-YIBANSTUDIO  </h5>
+	</footer>
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/mainAPI.js"></script>
+</body>
+
+
+
+</html>

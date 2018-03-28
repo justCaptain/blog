@@ -1,0 +1,38 @@
+
+
+.navbar{
+	margin-bottom: 10px;
+}
+th,td{
+	text-align: center;
+
+}
+/*input[type=search] {
+	background: url(./img/search.svg) no-repeat 4px center;
+	background-size: 23px;
+	background-color: #eee;
+	border: solid 1px #ccc;
+	padding: 3px 10px 1px 34px;
+	font-size: 100%;
+	width: 160px;
+	border-radius: 9em;
+	transition: all 0.6s;
+	outline:none;
+	margin: 0 0 8px 10px;
+}
+input[type=search]:focus {
+	width: 280px;
+	background-color: #fff;
+	border-color: #66CC75;
+}*/
+.contain{
+	margin-left: 18px;
+	margin-right:20px;
+}
+.input-group{
+	margin-bottom: 30px;
+}
+footer{
+	margin-top:23px;
+	margin-bottom: 23px;
+}

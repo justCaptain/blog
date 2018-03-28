@@ -1,0 +1,69 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<title> 后台管理 </title>	
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  	<div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">后台管理</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav">
+		        	<li ><a href="#">主页</a></li>
+		        	<li ><a href="#">添加文章</a></li>
+		        	<li class="active"><a href="#">添加标签</a></li>
+		      	</ul>
+			    <ul class="nav navbar-nav navbar-right">    
+			    	<li><a href="javascript:void(0);">您好，管理员</a></li>
+			    </ul>
+		    </div>
+	 	</div>
+	</nav>
+	<ol class="breadcrumb">
+		<li class="active">添加标签</li>
+	</ol>
+
+	<div class="contain main">
+	  	<div class="form-group">
+	    	<label for="InputClassName">标签名称</label>
+	    	<input type="text" class="form-control" id="InputTagName" placeholder="请输入标签名称">
+	  	</div>
+
+		<p class="text-danger hide">输入内容不能有空！</p>
+	  	<button type="submit" class="btn btn-info" id="formSubmit">提交</button>
+	</div>
+
+	<div class="contain ">
+		<div class="panel panel-success hide">
+			<div class="panel-heading">提交信息</div>
+		 	<div class="panel-body">
+				添加标签成功! 3 秒后跳转, 请稍等 ...
+			</div>
+		</div>
+		<div class="panel panel-danger hide">
+			<div class="panel-heading">提交信息</div>
+		 	<div class="panel-body">
+				添加标签失败! 5 秒后跳转, 请稍等 ...
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<footer class="text-center">
+		<hr/><h5> Copyright © ZQU-YIBANSTUDIO  </h5>
+	</footer>
+
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/addtagAPI.js"></script>
+	
+</body>
+</html>
+
