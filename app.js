@@ -28,7 +28,7 @@ app.use('/api',require('./routers/api/main'));
 
 app.get('/',function(req,res){
     res.send('Hello World!');
-})
+});
 
 mongoose.connect('mongodb://localhost:27017/blog',function(err){
     if(err){
@@ -40,5 +40,5 @@ mongoose.connect('mongodb://localhost:27017/blog',function(err){
 
         console.log('服务器已打开');
     }
-})
+});
 
