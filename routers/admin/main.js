@@ -13,9 +13,9 @@ router.get('/main',function(req,res){
 router.get('/addarticle',function(req,res){
     res.render('addarticle');
 });
-// 管理增加标签页面路由
-router.get('/addtag',function(req,res){
-    res.render('addtag');
+// 管理标签管理页面路由
+router.get('/tag',function(req,res){
+    res.render('tag');
 })
 //管理修改文章页面路由
 router.get('/update',function(req,res){
