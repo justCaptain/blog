@@ -5,7 +5,7 @@ $('#addSubmit').on('click',function(){
     }else{
         $(this).text('正在提交 ...');
         $.ajax({
-            url: '/api/addtag',
+            url: '/api/admin/addtag',
             type: 'post',
             data: {
                 tagname: $('#addInput').val()
@@ -38,7 +38,7 @@ $('#deleteSubmit').on('click',function(){
     }else{
         $(this).text('正在提交 ...');
         $.ajax({
-            url: '/api/deletetag',
+            url: '/api/admin/deletetag',
             type: 'post',
             data: {
                 tagname: $('#deleteInput').val()

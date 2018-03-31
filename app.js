@@ -20,11 +20,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 //设置管理员路由
-app.use('/admin',require('./routers/admin/main'));
-//设置用户路由
-app.use('/user',require('./routers/user/main'));
+app.use('/admin',require('./routers/admin'));
+//设置主页路由
+app.use('/',require('./routers/main'));
 //设置API路由
-app.use('/api',require('./routers/api/main'));
+app.use('/api',require('./routers/api'));
 
 app.get('/',function(req,res){
     res.send('Hello World!');

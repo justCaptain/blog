@@ -5,19 +5,72 @@
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<title> 请假系统后台管理 </title>
 	<link href="/css/main.css" rel="stylesheet">
+	<title> 后台管理 </title>
+
+	<style>
+		/* Base for label styling */
+		[type="checkbox"]:not(:checked),
+		[type="checkbox"]:checked {
+		  position: absolute;
+		  left: -9999px;
+		}
+		[type="checkbox"]:not(:checked) + label,
+		[type="checkbox"]:checked + label {
+		  position: relative;
+		  padding-left: 1.95em;
+		  cursor: pointer;
+		}
+
+		/* checkbox aspect */
+		[type="checkbox"]:not(:checked) + label:before,
+		[type="checkbox"]:checked + label:before {
+		  content: '';
+		  position: absolute;
+		  left: 0; top: 0;
+		  width: 1.25em; height: 1.25em;
+		  border: 2px solid #ccc;
+		  background: #fff;
+		  border-radius: 4px;
+		  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+		}
+		/* checked mark aspect */
+		[type="checkbox"]:not(:checked) + label:after,
+		[type="checkbox"]:checked + label:after {
+		  content: '✔';
+		  position: absolute;
+		  top: .2em; left: .275em;
+		  font-size: 1.4em;
+		  line-height: 0.8;
+		  color: #09ad7e;
+		  transition: all .2s;
+		  font-family: Helvetica, Arial, sans-serif;
+		}
+		/* checked mark aspect changes */
+		[type="checkbox"]:not(:checked) + label:after {
+		  opacity: 0;
+		  transform: scale(0);
+		}
+		[type="checkbox"]:checked + label:after {
+		  opacity: 1;
+		  transform: scale(1);
+		}
+		/* hover style just for information */
+		label:hover:before {
+		  border: 2px solid #4778d9!important;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
 	  	<div class="container-fluid">
 		    <div class="navbar-header">
-		      	<a class="navbar-brand" href="/home">后台管理</a>
+		      <a class="navbar-brand" href="#">后台管理</a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-		        	<li class="active"><a href="/home">主页</a></li>
-		        	<li><a href="./addclass.html">添加班级</a></li>
+		        	<li ><a href="#">主页</a></li>
+		        	<li class="active"><a href="#">添加文章</a></li>
 		      	</ul>
 			    <ul class="nav navbar-nav navbar-right">    
 			    	<li><a href="javascript:void(0);">您好，管理员</a></li>
@@ -26,58 +79,61 @@
 	 	</div>
 	</nav>
 	<ol class="breadcrumb">
-		<li><a href="/home">主页</a></li>
-		<li class="active">修改</li>
+		<li class="active">修改文章</li>
 	</ol>
 
-	<div class="contain main"> 
-		<div class="page-header">
-	  		<h1><span>16软件1班</span>  <small>2016241331</small></h1>
+	<div class="contain main">
+	  	<div class="form-group">
+	    	<label for="InputTitle">文章标题</label>
+	    	<input type="text" class="form-control" id="InputTitle" placeholder="请输入文章标题" value="<%= title %>">
+	  	</div>
+	  	<div class="form-group">
+	    	<label for"InputSummary">文章简介</label>
+	    	<textarea class="form-control" rows="4" id="InputSummary"><%=summary%></textarea>
+	  	</div>
+	  	  
+		<div class="tagslist">
+			<% for(var i=0; i<tags.length; i++){ %>
+			<input type="checkbox" id="tags_<%= tags[i].name %>" name="<%= tags[i] %>" <% if(tags[i].check){%> checked="checked"<% } %> />
+				<label for="tags_<%= tags[i].name %>"><%= tags[i].name %></label>
+			<% } %>
 		</div>
-		<div class="input-group ">
-		  	<span class="input-group-addon">辅导员ID</span>
-		  	<input type="text" class="form-control"  id="teacherInput" placeholder="请输入辅导员ID" value="201624133135">
-		</div>
-		<div id="teacherInputMessage">
-				<div class="alert alert-success " >ID: 201624133135 用户名: 杨玉孟</div>
-				<div class="alert alert-danger hide" >未找到该用户 请输入 ...</div>
-		</div>
-		<div class="input-group ">
-		  	<span class="input-group-addon" >班长ID</span>
-		  	<input type="text" class="form-control" id="monitorInput" placeholder="请输入班长ID" value="201624133135">
-		</div>
-		<div id="monitorInputMessage">
-			<div class="alert alert-success" >ID: 201624133135 用户名: 杨玉孟</div>
-			<div class="alert alert-danger hide" >未找到该用户 请输入 ...</div>
-		</div>
+
+	  	<div class="form-group">
+	    	<label for="InputContent">文章内容</label>
+	    	<textarea class="form-control" rows="9" id="InputContent"><%= content %></textarea>
+	  	</div>
+	  	
+
 		<p class="text-danger hide">输入内容不能有空！</p>
-		<button type="button" class="btn btn-primary" id="formSubmit">提交更改</button>
+	  	<button type="submit" class="btn btn-info" id="formSubmit">提交</button>
 	</div>
 
 	<div class="contain ">
 		<div class="panel panel-success hide">
 			<div class="panel-heading">提交信息</div>
 		 	<div class="panel-body">
-				更改成功! 3 秒后跳转, 请稍等 ...
+				添加文章成功! 5 秒后跳转, 请稍等 ...
 			</div>
 		</div>
 		<div class="panel panel-danger hide">
 			<div class="panel-heading">提交信息</div>
 		 	<div class="panel-body">
-				更改失败! 5 秒后跳转, 请稍等 ...
+				添加文章失败! 5 秒后跳转, 请稍等 ...
 			</div>
-		</div>	
+		</div>
 	</div>
-
+	
+	
 
 	<footer class="text-center">
 		<hr/><h5> Copyright © ZQU-YIBANSTUDIO  </h5>
 	</footer>
 
-	
 	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/updateAPI.js"></script>
+	<script type="text/javascript" src="/js/addarticleAPI.js"></script>
+	
 </body>
 </html>
 

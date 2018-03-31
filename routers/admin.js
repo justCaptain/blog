@@ -9,9 +9,9 @@ router.get('/',function(req,res){
 router.get('/main',function(req,res){
     res.render('main');
 });
-// 管理增加文章页面路由
+// 管理添加文章页面路由
 router.get('/addarticle',function(req,res){
-    res.render('addarticle');
+    res.render('addarticle',{tags:['node','javascript','java','C#']});
 });
 // 管理标签管理页面路由
 router.get('/tag',function(req,res){
@@ -19,7 +19,7 @@ router.get('/tag',function(req,res){
 })
 //管理修改文章页面路由
 router.get('/update',function(req,res){
-    res.render('update');
+    res.render('update',{title:'这是传奇',summary:'这是简介',content:'这是内容',tags:[{name:'sfdfasdf',check:'1'},{name:'NodeJs',check:'0'}]});
 });
 
 module.exports = router;

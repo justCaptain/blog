@@ -84,22 +84,24 @@
 
 	<div class="contain main">
 	  	<div class="form-group">
-	    	<label for="InputClassName">文章标题</label>
-	    	<input type="text" class="form-control" id="InputClassName" placeholder="请输入文章标题">
+	    	<label for="InputTitle">文章标题</label>
+	    	<input type="text" class="form-control" id="InputTitle" placeholder="请输入文章标题">
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="InputClassId">文章简介</label>
-	    	<textarea class="form-control" rows="4"></textarea>
+	    	<label for"InputSummary">文章简介</label>
+	    	<textarea class="form-control" rows="4" id="InputSummary"></textarea>
 	  	</div>
 	  	
-	  	<div>
-			  <input type="checkbox" id="test1" />
-			   <label for="test1">Red</label>
-		</div>
+	  	<div class="tagslist">
+				<% for(var i=0; i<tags.length; i++){ %>
+			  	<input type="checkbox" id="tags_<%= tags[i] %>" name="<%= tags[i] %>"/>
+					<label for="tags_<%= tags[i] %>"><%= tags[i] %></label>
+				<% } %>
+			</div>
 
 	  	<div class="form-group">
-	    	<label for="InputClassId">文章内容</label>
-	    	<textarea class="form-control" rows="9"></textarea>
+	    	<label for="InputContent">文章内容</label>
+	    	<textarea class="form-control" rows="9" id="InputContent"></textarea>
 	  	</div>
 	  	
 
@@ -111,7 +113,7 @@
 		<div class="panel panel-success hide">
 			<div class="panel-heading">提交信息</div>
 		 	<div class="panel-body">
-				添加文章成功! 3 秒后跳转, 请稍等 ...
+				添加文章成功! 5 秒后跳转, 请稍等 ...
 			</div>
 		</div>
 		<div class="panel panel-danger hide">
@@ -130,7 +132,7 @@
 
 	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/addclassAPI.js"></script>
+	<script type="text/javascript" src="/js/addarticleAPI.js"></script>
 	
 </body>
 </html>
