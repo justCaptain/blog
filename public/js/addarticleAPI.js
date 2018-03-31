@@ -3,7 +3,7 @@ $('#formSubmit').on('click',function(){
 	if($('#InputTitle').val() == ''||$('#InputSummary').val()==''||$('#InputContent').val()==''){
 		$('.text-danger').css('display','block');
 	}else{
-		$('.text-danger').css('display','block');
+		$('.text-danger').css('display','none');
 		var tags = [];
 		$('.tagslist').children('input').each(function(element) {
 			if($(this).is(':checked')){

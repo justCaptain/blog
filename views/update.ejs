@@ -82,7 +82,7 @@
 		<li class="active">修改文章</li>
 	</ol>
 
-	<div class="contain main">
+	<div class="contain main" name="20161523">
 	  	<div class="form-group">
 	    	<label for="InputTitle">文章标题</label>
 	    	<input type="text" class="form-control" id="InputTitle" placeholder="请输入文章标题" value="<%= title %>">
@@ -94,8 +94,8 @@
 	  	  
 		<div class="tagslist">
 			<% for(var i=0; i<tags.length; i++){ %>
-			<input type="checkbox" id="tags_<%= tags[i].name %>" name="<%= tags[i] %>" <% if(tags[i].check){%> checked="checked"<% } %> />
-				<label for="tags_<%= tags[i].name %>"><%= tags[i].name %></label>
+					<input type="checkbox" id="tags_<%= tags[i].name %>" name="<%= tags[i].name %>" <% if(tags[i].check){%> checked="checked"<% } %> />
+					<label for="tags_<%= tags[i].name %>"><%= tags[i].name %></label>
 			<% } %>
 		</div>
 
@@ -113,13 +113,13 @@
 		<div class="panel panel-success hide">
 			<div class="panel-heading">提交信息</div>
 		 	<div class="panel-body">
-				添加文章成功! 5 秒后跳转, 请稍等 ...
+				修改文章成功! 5 秒后跳转, 请稍等 ...
 			</div>
 		</div>
 		<div class="panel panel-danger hide">
 			<div class="panel-heading">提交信息</div>
 		 	<div class="panel-body">
-				添加文章失败! 5 秒后跳转, 请稍等 ...
+				修改文章失败! 5 秒后跳转, 请稍等 ...
 			</div>
 		</div>
 	</div>
@@ -132,7 +132,7 @@
 
 	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/addarticleAPI.js"></script>
+	<script type="text/javascript" src="/js/updateAPI.js"></script>
 	
 </body>
 </html>

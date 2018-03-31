@@ -19,7 +19,7 @@ router.get('/tag',function(req,res){
 })
 //管理修改文章页面路由
 router.get('/update',function(req,res){
-    res.render('update',{title:'这是传奇',summary:'这是简介',content:'这是内容',tags:[{name:'sfdfasdf',check:'1'},{name:'NodeJs',check:'0'}]});
+    res.render('update',{title:'这是传奇',summary:'这是简介',content:'这是内容',tags:[{name:'sfdfasdf',check:true},{name:'NodeJs',check:false}]});
 });
 
 module.exports = router;
