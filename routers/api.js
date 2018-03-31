@@ -91,7 +91,33 @@ router.post('/admin/addarticle',function(req,res){
     });
 });
 
-
-
+router.post('/admin/update',function(req,res){
+    var data = req.body;
+    Article.findById(data.articleid).then((result)=>{
+        //未找到该记录
+        if(result == null){
+            responseData.code = 1;
+            responseData.message = '未找到该记录';
+            res.json(responseData);
+            return;
+        }
+        //找到该记录
+        else{
+            console.log(result);
+            Article.update({_id:data.articleid},{title:data.title,tags:data.tags,summary:data.summary,content:data.content}, { multi: true })
+                .then((result)=>{
+                    responseData.code = 0;
+                    responseData.message = '修改文章成功';
+                    res.json(responseData);
+                    return ;
+                });
+        }
+    }).catch((err)=>{
+        console.log('查询失败: '+ err.reason);
+        responseData.code = 1;
+        responseData.message = '查询该记录失败';
+        res.json(responseData);
+    });
+});
 
 module.exports = router;

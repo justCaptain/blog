@@ -14,6 +14,7 @@ $('#formSubmit').on('click',function(){
 			type: "post" ,
 			traditional: true,
 			data:{
+				articleid: $('.main').attr('name'),
 				title: $('#InputTitle').val(),
 				summary: $('#InputSummary').val(),
 				tags : tags,
@@ -25,7 +26,7 @@ $('#formSubmit').on('click',function(){
 					$('.panel-success').css('display','block');
 					setTimeout(function(){
 						window.location.reload();
-					},3000);
+					},5000);
 				}else{
 					$('.panel-danger').find('.panel-body').text(' 失败: ' + reusult.message +', 5秒后进行跳转 ... ');
 					$('.panel-danger').css('display','block');

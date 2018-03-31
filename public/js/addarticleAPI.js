@@ -36,6 +36,6 @@ $('#formSubmit').on('click',function(){
 					},5000);
 				}
 			}
-		})
+		});
 	}
 });
