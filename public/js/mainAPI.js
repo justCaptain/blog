@@ -35,18 +35,17 @@
 // });
 
 
-$('.deleteclass').on('click',function(){
-	$('#modalclassname').text($(this).parent().prevAll('.classname').text());
+$('.deleteblog').on('click',function(){
+	$('#modalblogid').text($(this).attr('name'));
 });
 
 $('#modalconfirm').on('click',function(){
 	$(this).text('正在提交...');
 	$.ajax({
 		type:'post' ,
-		url: '/admin/api/deleteclass' ,
+		url: '/api/admin/deleteblog' ,
 		data: {
-			classid: $('#modalclassid').text(),
-			classname: $('#modalclassname').text()
+			blogid: $('#modalblogid').text()
 		},
 		success: function(result){
 			if(result.code == 0){

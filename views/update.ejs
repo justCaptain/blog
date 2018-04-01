@@ -65,13 +65,14 @@
 	<nav class="navbar navbar-default">
 	  	<div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">后台管理</a>
+		      <a class="navbar-brand" href="/admin/home">后台管理</a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-		        	<li ><a href="#">主页</a></li>
-		        	<li class="active"><a href="#">添加文章</a></li>
-		      	</ul>
+							<li class="active"><a href="/admin/home">主页</a></li>
+							<li ><a href="/admin/addarticle">添加文章</a></li>
+							<li ><a href="/admin/tag">标签管理</a></li>
+						</ul>
 			    <ul class="nav navbar-nav navbar-right">    
 			    	<li><a href="javascript:void(0);">您好，管理员</a></li>
 			    </ul>
@@ -94,8 +95,8 @@
 	  	  
 		<div class="tagslist">
 			<% for(var i=0; i<tags.length; i++){ %>
-					<input type="checkbox" id="tags_<%= tags[i].name %>" name="<%= tags[i].name %>" <% if(tags[i].check){%> checked="checked"<% } %> />
-					<label for="tags_<%= tags[i].name %>"><%= tags[i].name %></label>
+					<input type="checkbox" id="tags_<%= tags[i]._id %>" name="<%= tags[i]._id %>" <% if(tags[i].check){%> checked="checked"<% } %> />
+					<label for="tags_<%= tags[i]._id %>"><%= tags[i].name %></label>
 			<% } %>
 		</div>
 
@@ -127,7 +128,7 @@
 	
 
 	<footer class="text-center">
-		<hr/><h5> Copyright © ZQU-YIBANSTUDIO  </h5>
+		<hr/><h5> Copyright © New-Captain  </h5>
 	</footer>
 
 	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>

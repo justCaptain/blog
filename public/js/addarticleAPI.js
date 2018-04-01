@@ -7,7 +7,7 @@ $('#formSubmit').on('click',function(){
 		var tags = [];
 		$('.tagslist').children('input').each(function(element) {
 			if($(this).is(':checked')){
-				tags.push($(this).attr('name'));
+				tags.push($(this).next().text());
 			}
 		});
 		$.ajax({

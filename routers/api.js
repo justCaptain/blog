@@ -103,7 +103,6 @@ router.post('/admin/update',function(req,res){
         }
         //找到该记录
         else{
-            console.log(result);
             Article.update({_id:data.articleid},{title:data.title,tags:data.tags,summary:data.summary,content:data.content}, { multi: true })
                 .then((result)=>{
                     responseData.code = 0;
