@@ -1,0 +1,51 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>home</title>
+		<link rel="stylesheet" href="/css/typo.css"/>
+		<link rel="stylesheet" href="/css/index.css">
+	</head>
+	<body>
+		<% include sidebar.html %>
+		<div class="container">
+			<div class="article-list">
+				<% for(var i=0; i<articles.length; i++){%>
+				<article>
+					<header class="title">
+						<h1> <a href="/article?id=<%=articles[i]._id%>"><%= articles[i].title%></a></h1>
+						<div class="meta-list"> 
+							<time><%= articles[i].date%> |</time>
+							<ul>
+								<li class="meta-text">
+									<% for(var j=0;j<articles[i].tags.length; j++){%>
+									{ <a href="/tags?q=<%=articles[i].tags[j]._id %>"> <%=articles[i].tags[j].name %> </a> } 
+									<% } %>
+								</li>
+							</ul>
+						</div>
+					</header>
+					<div class="description">
+						<%= articles[i].summary %>
+					<div class="more">
+						<a href="/article?q=<%=articles[i]._id%>">More »</a>
+					</div>
+				</article>
+				<% } %>
+				<section class="paging">
+					<nav >
+						<span >1</span>
+						<a  href="#">2</a>
+						<a  href="#">3</a>
+						<span >…</span>
+						<a  href="#">5</a>
+						<a  href="#">next »</a>
+					</nav>
+				</section>
+			</div>
+			<footer> <small>Copyright © 2018 NewCaptain</small></footer>
+			
+		</div>
+
+	</body>
+</html>

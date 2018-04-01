@@ -1,0 +1,153 @@
+body{
+    line-height:1.7em;
+    color:#4a4a4a;
+}
+div{
+    display: block;
+}
+.SideBar{
+    width:240px;
+    height:100%;
+    position: fixed;
+}
+.container{
+    width:60%;
+    box-sizing: border-box;
+    position: absolute;
+    margin:0.5rem auto;
+    left:240px;
+    right:0;
+}
+.avatar{
+    background:aqua;
+    width:100%;
+    height:180px;
+    position:absolute;
+}
+li{
+    list-style:none;
+}
+.av-pic{
+    background:url(/img/avpic.jpg) no-repeat;
+    width:130px;
+    height:130px;
+    margin-top:115px;
+    margin-left:auto;
+    margin-right:auto;
+    background-size:100%;
+    border-radius: 50%;
+}
+.menu{
+    position: absolute;
+    top:260px;
+    width:100%;
+    font-weight:400;
+}
+.menu>div{
+    text-align:center;
+}
+.menu-list{
+    text-align:right;
+}
+.menu-list>li{
+    margin:1.8rem 0;
+}
+.menu-list a{
+    border-right: 3px #777 solid;
+    color:#777;
+    padding-right:1rem;
+}
+.title{
+    text-align: center;
+}
+.title h1{
+    font-size:2.1em;
+    line-height: 125%;
+}
+a {
+    text-decoration: none;
+    color: #686868;
+    font-weight:400;
+}
+a:hover {
+    color: #0e0e0e;
+    border-bottom: 1px #0e0e0e solid;
+}
+.menu-list a:hover{
+    color:#0e0e0e;
+    border-right:3px #0e0e0e solid;
+    border-bottom:none;
+}
+.meta-list{
+    margin-top:1em;
+}
+.meta-list ul{
+    display: inline-block;
+    padding-left: 8px;
+}
+.description{
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+.article-list>article{
+    margin-top:3.5rem;
+}
+.paging{
+    text-align: center;
+    margin-bottom:1em;
+}
+footer{
+    margin:5rem 0 2rem;
+    text-align:center;
+}
+.contain-head{
+    margin-top:3rem;
+}
+.archive{
+    margin-left:20px;
+    position:relative;
+    padding-top:4rem;
+}
+.archive::before{
+    content: "";
+    height:auto;
+    width:3px;
+    top:0;
+    bottom:0;
+    position:absolute;
+    left:-10px;
+    background: #ddd;
+}
+.timeSection{
+    padding-left:16px;
+    margin:3.2rem auto;
+}
+.timeSection>h1::before{
+    width:10px;
+    height:10px;
+    background:#ddd; 
+    position:absolute;
+    border-radius: 50%;
+    margin-top:11px;
+    left: -14px;
+    content:"";
+}
+.timeSection-list{
+    margin:2rem auto;
+}
+.timeSection-list h2::before{
+    width:8px;
+    height:8px;
+    background:#ddd; 
+    position:absolute;
+    border-radius: 50%;
+    margin-top:11px;
+    left: -13px;
+    content:"";
+}
+.tags{
+    text-align: center;
+}
+.tags li{
+    margin:1.8rem auto;
+}

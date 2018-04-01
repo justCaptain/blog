@@ -4,19 +4,40 @@ var router = express.Router();
 var Tags = require('../models/tags');
 var Article = require('../models/article');
 
+
 //处理管理员主页路由
 router.get('/',function(req,res){
-    res.render('main');
-});
-router.get('/home',function(req,res){
-    Article.find({}).then(articlesinfo=>{
+    var limit = 3;
+
+    Article.find({}).limit(limit).then(articlesinfo=>{
         var articles = [];
         articlesinfo.forEach(articleinfo=>{
             articles.push(articleinfo);
         });
-        res.render('main',{article:articles});
+        res.render('admin',{article:articles,page:1});
     });
 });
+
+router.get('/home',function(req,res){
+    var page = req.query.page||1;
+    var limit = 3;
+    var pages = 0;
+
+    Article.count().then(count=>{
+        pages =  Math.ceil(count/limit);
+        page = Math.min(page,pages);
+        page = Math.max(page,1);
+
+        Article.find({}).skip( (page-1)*limit ).limit(limit).then(articlesinfo=>{
+            var articles = [];
+            articlesinfo.forEach(articleinfo=>{
+                articles.push(articleinfo);
+            });
+            res.render('admin',{article:articles,page:page});
+        });
+    });
+});
+
 // 管理添加文章页面路由
 router.get('/addarticle',function(req,res){
     var tags = [];
