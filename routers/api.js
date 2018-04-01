@@ -119,4 +119,15 @@ router.post('/admin/update',function(req,res){
     });
 });
 
+router.post('/admin/deleteblog',function(req,res){
+    var articleid = req.body.blogid;
+    Article.remove({_id:articleid}).then(result=>{
+        if(result.ok == 1){
+            res.send({code:0});
+        }else{
+            res.send({code:-1});
+        }
+    });
+})
+
 module.exports = router;
