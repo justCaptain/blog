@@ -34,7 +34,6 @@ router.get('/',function(req,res){
     });
 });
 
-
 // 管理添加文章页面路由
 router.get('/addarticle',function(req,res){
     var tags = [];

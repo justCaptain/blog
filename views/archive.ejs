@@ -11,18 +11,21 @@
 		<div class="container">
             <div class="archive">
                 <section class="timeSection">
-                    <h1>2018</h1>
                     <div class="timeSection-list">
-                        <h2><a href="#">Miko: Geisha 的半残编译器</a></h2>
-                        <div class="meta-list"> 
-                            <time datetime="2018-06-16">2018-06-16 |</time>
-                            <ul>
-                                <li class="meta-text"> { <a href="#"> Node </a> } </li>
-                            </ul>
-                        </div>
+                        <% for(var i=0; i<articles.length; i++){%>
+                            <h2><a href="/article?id=<%=articles[i]._id%>"><%= articles[i].title %></a></h2>
+                            <div class="meta-list"> 
+                                <time> <%= moment(articles[i].date).format('YYYY-MM-DD') %>  | </time>
+                                <ul>
+                                    <% for(var j=0; j<articles[i].tags.length; j++){ %>
+                                        <li class="meta-text"> { <a href="/tags?q=<%= articles[i].tags[j]._id %>"> <%=articles[i].tags[j].name %></a> } </li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        <% } %>
                     </div>
                 </section>
-                <section class="timeSection">
+                <!-- <section class="timeSection">
                     <h1>2017</h1>
                     <div class="timeSection-list">
                         <h2><a href="#">Miko: Geisha 的半残编译器</a></h2>
@@ -54,7 +57,7 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                </section> -->
             </div>
 			<footer> <small>Copyright © 2018 NewCaptain</small></footer>
 			

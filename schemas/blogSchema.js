@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var tagSchema = require('./tagSchema');
+var moment = require('moment');
+
 var blogSchema = new Schema({
     title: String,
-    date: {type: Date, default: Date.now},
+    date: {type: Date, default:Date.now},
     content: String,
     summary: String,
     views: {type:Number,default:0}, 

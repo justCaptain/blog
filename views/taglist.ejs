@@ -13,13 +13,9 @@
                 <h1>Tags</h1>
             </header>
             <ul class="tags">
-                <li>{<a href="#">Node</a>}</li>
-                <li>{<a href="#">JavaScript</a>}</li>
-                <li>{<a href="#">Java</a>}</li>
-                <li>{<a href="#">数据结构</a>}</li>
-                <li>{<a href="#">Python</a>}</li>
-                <li>{<a href="#">Node</a>}</li>
-                <li>{<a href="#">Node</a>}</li>
+				<% for(var i=0; i<tags.length; i++){ %>
+					<li>{<a href="?q=<%=tags[i]._id%>"><%= tags[i].name %></a>}</li>
+				<% } %>
             </ul>
         
 		    <footer> <small>Copyright © 2018 NewCaptain</small></footer>
