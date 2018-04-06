@@ -7,7 +7,8 @@ $('#formSubmit').on('click',function(){
 		var tags = [];
 		$('.tagslist').children('input').each(function(element) {
 			if($(this).is(':checked')){
-				tags.push($(this).next().text());
+				//把id发给服务端
+				tags.push($(this).attr('name'));
 			}
 		});
 		$.ajax({

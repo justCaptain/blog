@@ -58,7 +58,10 @@ router.post('/admin/deletetag',function(req,res){
             res.json(responseData);
             return ;
         }else{
-            //找到此标签，执行删除操作
+            //找到此标签，删除所有有此标签的文章的标签
+            Article.find({'tags':taginfo.name}).then(articleinfo=>{
+                console.log(articleinfo);
+            });
             return taginfo.remove();
         }
     }).then((newtaginfo)=>{

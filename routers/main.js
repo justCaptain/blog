@@ -1,48 +1,38 @@
 var express = require('express');
 var router = express.Router();
-var Article = require('../models/article');
 var Tags =require('../models/tags');
+var Article = require('../models/article');
+
 
 router.get('/',function(req,res){
-    Article.find({}).then(articlesinfo=>{
-        var articles = [];
-        articlesinfo.forEach(item=>{
-            var tmp = {};
-            tmp.title = item.title;
-            tmp.date = item.date;
-            tmp.summary = item.summary;
-            var tmptg = [];
-
-            item.tags.forEach(tag=>{
-                Tags.findOne({name:tag}).then(tmp=>{
-                    if(tmp){
-                        var x = {};
-                        x._id = tmp._id;
-                        x.name = tmp.name;
-                        tmptg.push(x);
-                    }
-                    return tmptg;
-                }).then(tmptg=>{
-                    if(tmptg.length == item.tags.length){
-                        console.log('here');
-                        tmp.tags =tmptg;
-                        articles.push(tmp);
-                    }
-                    return articles;
-                }).then(articles=>{
-                    console.log(articles.length);
-                    if (articles.length == articlesinfo.length){
-                        res.render('index',{articles:articles});
-                    }
-                });
-            });
+    var page = req.query.page||1;
+    var limit = 3;
+    var pages = 0;
+    Article.count().then(count =>{
+        pages =  Math.ceil(count/limit);
+        page = Math.min(page,pages);
+        page = Math.max(page,1);
+        Article.find({}).populate('tags').skip((page-1)*limit).limit(limit).then(articlesinfo=>{
+            var nextbtn = true;
+            var prebtn = true;
+            if(page <= 1){
+                prebtn = false;
+            }
+            if(page>= pages){
+                nextbtn = false;
+            }
+            res.render('index',{articles:articlesinfo,page:page,pages:pages,prebtn:prebtn,nextbtn:nextbtn});
         });
-        
     });
-    
 });
 router.get('/tags',function(req,res){
-    res.render('tags');
+    var q = req.query.q;
+    console.log(q);
+    if(!q)
+        res.render('taglist');
+    else{
+        
+    }
 });
 router.get('/archive',function(req,res){
     res.render('archive');

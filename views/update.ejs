@@ -69,7 +69,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-							<li class="active"><a href="/admin/home">主页</a></li>
+							<li class="active"><a href="/admin">主页</a></li>
 							<li ><a href="/admin/addarticle">添加文章</a></li>
 							<li ><a href="/admin/tag">标签管理</a></li>
 						</ul>
@@ -95,7 +95,7 @@
 	  	  
 		<div class="tagslist">
 			<% for(var i=0; i<tags.length; i++){ %>
-					<input type="checkbox" id="tags_<%= tags[i]._id %>" name="<%= tags[i]._id %>" <% if(tags[i].check){%> checked="checked"<% } %> />
+					<input type="checkbox" id="tags_<%= tags[i]._id %>" name="<%=tags[i]._id %>" <% if(tags[i].check){%> checked="checked"<% } %> />
 					<label for="tags_<%= tags[i]._id %>"><%= tags[i].name %></label>
 			<% } %>
 		</div>

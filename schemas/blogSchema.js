@@ -7,7 +7,7 @@ var blogSchema = new Schema({
     content: String,
     summary: String,
     views: {type:Number,default:0}, 
-    tags: [{ type: String ,ref:tagSchema} ]
+    tags: [{ type: Schema.Types.ObjectId ,ref:'Tags'} ]
 });
 
 module.exports = blogSchema;

@@ -3,5 +3,5 @@ var Schema = mongoose.Schema;
 
 module.exports = new Schema({
     name: String,
-    articleid: [{type:String,default:''}]
+    articleid: [{type:Schema.Types.ObjectId,default:''}]
 });

@@ -7,18 +7,6 @@ var Article = require('../models/article');
 
 //处理管理员主页路由
 router.get('/',function(req,res){
-    var limit = 3;
-
-    Article.find({}).limit(limit).then(articlesinfo=>{
-        var articles = [];
-        articlesinfo.forEach(articleinfo=>{
-            articles.push(articleinfo);
-        });
-        res.render('admin',{article:articles,page:1});
-    });
-});
-
-router.get('/home',function(req,res){
     var page = req.query.page||1;
     var limit = 3;
     var pages = 0;
@@ -33,10 +21,19 @@ router.get('/home',function(req,res){
             articlesinfo.forEach(articleinfo=>{
                 articles.push(articleinfo);
             });
-            res.render('admin',{article:articles,page:page});
+            var prebtn = true;
+            var nextbtn = true;
+            if(page == 1){
+                prebtn = false;
+            }
+            if(page == pages){
+                nextbtn =  false;
+            }
+            res.render('admin',{article:articles,page:page,prebtn:prebtn,nextbtn:nextbtn});
         });
     });
 });
+
 
 // 管理添加文章页面路由
 router.get('/addarticle',function(req,res){
@@ -77,7 +74,7 @@ router.get('/update',function(req,res){
                 if(article.tags!=null){
                     article.tags.forEach(item=>{
                         //跟文章的标签比较,若相同,check = true
-                        if(item == tmp._id){
+                        if(item.toString() === tmp._id.toString()){
                             tmp.check = true;
                         }
                     });
