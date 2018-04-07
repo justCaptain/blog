@@ -2,16 +2,16 @@
         <% for(var i=0; i<articles.length; i++){%>
         <article>
             <header class="title">
-                <h1> <a href="/article?id=<%=articles[i]._id%>"><%= articles[i].title%></a></h1>
-                <div class="meta-list"> 
-                    <time><%= moment(articles[i].date).format('YYYY-MM-DD HH:mm')%> |</time>
+                <h2> <a href="/article?id=<%=articles[i]._id%>"><%= articles[i].title%></a></h2>
+                <div class="meta-list"> <small>
+                    <time><%= moment(articles[i].date).format('YYYY-MM-DD HH:mm')%> | </time>
                     <ul>
                         <li class="meta-text">
                             <% for(var j=0;j<articles[i].tags.length; j++){%>
                             { <a href="/tags?q=<%=articles[i].tags[j]._id %>"> <%=articles[i].tags[j].name %> </a> } 
                             <% } %>
                         </li>
-                    </ul>
+                    </ul></small>
                 </div>
             </header>
             <div class="description">
@@ -21,4 +21,4 @@
             </div>
         </article>
         <% } %>
-    </div>
+</div>

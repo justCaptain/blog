@@ -3,26 +3,24 @@
 	<head>
 		<meta charset="utf-8">
 		<title>home</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="/css/typo.css"/>
 		<link rel="stylesheet" href="/css/index.css">
 	</head>
-	<body class="typo">
+	<body >
 		<% include sidebar.html %>
 		<div class="container">
 			<header class="contain-head">
-                <h1><%= article.title %></h1>
+                <h2><%= article.title %></h2>
 			</header>
-			<article class="articlecontent typo">
-				<%= article.content %>
+			<article class=" typo" id="articlecontent"><%= article.content %>
 			</article>
 			<footer> <small>Copyright © 2018 NewCaptain</small></footer>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
-		<script src="/js/jquery-3.2.1.min.js"></script>
 		<script>
-			$('.articlecontent').html(marked($('.articlecontent').text()));
-
-		  </script> 
+			document.getElementById('articlecontent').innerHTML=marked(document.getElementById('articlecontent').innerHTML);
+		</script> 
 	</body>
 </html>
