@@ -6,17 +6,23 @@
 		<link rel="stylesheet" href="/css/typo.css"/>
 		<link rel="stylesheet" href="/css/index.css">
 	</head>
-	<body>
+	<body class="typo">
 		<% include sidebar.html %>
 		<div class="container">
 			<header class="contain-head">
                 <h1><%= article.title %></h1>
 			</header>
-			<article>
+			<article class="articlecontent typo">
 				<%= article.content %>
 			</article>
 			<footer> <small>Copyright © 2018 NewCaptain</small></footer>
 		</div>
 
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
+		<script src="/js/jquery-3.2.1.min.js"></script>
+		<script>
+			$('.articlecontent').html(marked($('.articlecontent').text()));
+
+		  </script> 
 	</body>
 </html>
