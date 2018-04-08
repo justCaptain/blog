@@ -57,8 +57,10 @@ router.get('/archive',function(req,res){
 });
 router.get('/article',function(req,res){
     var id = req.query.id;
-    Article.findById(id).then(articleinfo=>{
-        res.render('article',{article:articleinfo});
+    Article.findById(id).populate('tags').then(articleinfo=>{
+        res.render('article',{article:articleinfo,moment:moment});
+        articleinfo.views ++;
+        articleinfo.save();
     });
 });
 router.get('/about',function(req,res){

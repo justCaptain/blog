@@ -12,7 +12,8 @@
     right:0;
 }
 .avatar{
-    background:aqua;
+    background:url(/img/VIX819CEJDET.jpg) no-repeat;
+    background-size: 100% 100%;
     width:100%;
     height:160px;
     position:absolute;
@@ -57,9 +58,12 @@
 .meta-list{
     margin:0.6em;
 }
-.meta-list ul{
+.meta-list ul,.meta-list li{
     display: inline-block;
     padding-left: 8px;
+}
+.article-list{
+    margin-top: 5rem;
 }
 .article-list>article{
     margin:0.7em;
@@ -118,10 +122,11 @@
 .contain-head{
     text-align: center;
     margin-top: 5em;
-    margin-bottom:3em;
+    margin-bottom:1.5em;
 }
 
 @media screen and (max-width:1024px){
+    
     .SideBar{
         position: absolute;
         width:auto;

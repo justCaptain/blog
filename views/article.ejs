@@ -13,6 +13,19 @@
 			<header class="contain-head">
                 <h2><%= article.title %></h2>
 			</header>
+			<header class="title">
+					<div class="meta-list"> 
+						<time><%= moment(article.date).format('YYYY-MM-DD HH:mm')%> | </time>
+							views: <%= article.views %> |
+						<ul>
+							<li class="meta-text">
+								<% for(var i=0;i<article.tags.length; i++){%>
+								{ <a href="/tags?q=<%=article.tags[i]._id %>"> <%=article.tags[i].name %> </a> } 
+								<% } %>
+							</li>
+						</ul>
+					</div>
+				</header>
 			<article class=" typo" id="articlecontent"><%= article.content %>
 			</article>
 			<footer> <small>Copyright © 2018 NewCaptain</small></footer>
