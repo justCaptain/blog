@@ -16,7 +16,7 @@ router.get('/',function(req,res){
         page = Math.min(page,pages);
         page = Math.max(page,1);
 
-        Article.find({}).skip( (page-1)*limit ).limit(limit).then(articlesinfo=>{
+        Article.find({}).sort({'date':-1}).skip( (page-1)*limit ).limit(limit).then(articlesinfo=>{
             var articles = [];
             articlesinfo.forEach(articleinfo=>{
                 articles.push(articleinfo);

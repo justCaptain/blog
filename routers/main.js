@@ -12,7 +12,7 @@ router.get('/',function(req,res){
         pages =  Math.ceil(count/limit);
         page = Math.min(page,pages);
         page = Math.max(page,1);
-        Article.find({}).populate('tags').skip((page-1)*limit).limit(limit).then(articlesinfo=>{
+        Article.find({}).populate('tags').sort({'date':-1}).skip((page-1)*limit).limit(limit).then(articlesinfo=>{
             var nextbtn = true;
             var prebtn = true;
             if(page <= 1){
@@ -35,7 +35,7 @@ router.get('/tags',function(req,res){
         //q有值说明要返回特定标签的文章列表
         var ans = [];
         Tags.findById(q).then(tag=>{
-            Article.find().populate('tags').then(articlesinfo=>{
+            Article.find().populate('tags').sort({'date':-1}).then(articlesinfo=>{
                 articlesinfo.forEach(article=>{
                     var isreturn = article.tags.some(item=>{
                         return item._id.toString() == q;
@@ -51,7 +51,7 @@ router.get('/tags',function(req,res){
 });
 router.get('/archive',function(req,res){
     var year = [];
-    Article.find({}).populate('tags').then(articlesinfo=>{
+    Article.find({}).populate('tags').sort({'date':-1}).then(articlesinfo=>{
         res.render('archive',{articles:articlesinfo,moment:moment});
     });
 });

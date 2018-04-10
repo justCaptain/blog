@@ -66,7 +66,9 @@
     margin-top: 5rem;
 }
 .article-list>article{
-    margin:0.7em;
+    margin-bottom:3.5em;
+    margin-left: 0.7em;
+    margin-right:0.7em;
 }
 .title a,.more a{
     color:#030303;
@@ -121,8 +123,7 @@
 }
 .contain-head{
     text-align: center;
-    margin-top: 5em;
-    margin-bottom:1.5em;
+    margin-top: 5em 0.7em 1.5em 0.7em;
 }
 
 @media screen and (max-width:1024px){
