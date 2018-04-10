@@ -26,9 +26,9 @@ app.use('/',require('./routers/main'));
 //设置API路由
 app.use('/api',require('./routers/api'));
 
-app.get('/favicon.ico',function(req,res){
-    
-});
+app.get('*',function(req,res){
+    res.render('404');
+})
 
 mongoose.connect('mongodb://localhost:27017/blog',function(err){
     if(err){
