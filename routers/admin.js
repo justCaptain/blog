@@ -3,10 +3,27 @@ var express = require('express');
 var router = express.Router();
 var Tags = require('../models/tags');
 var Article = require('../models/article');
+var basicAuth = require('basic-auth');
 
 
+//认证
+var auth = function(req, resp, next) {
+    function unauthorized(resp) {
+        resp.set('WWW-Authenticate', 'Basic realm=Input User&Password');
+        return resp.sendStatus(401);
+    }
+    var user = basicAuth(req);
+    if (!user || !user.name || !user.pass) {
+        return unauthorized(resp);
+    }
+    if (user.name === 'peng' && user.pass === 'j123') {
+        return next();
+    } else {
+        return unauthorized(resp);
+    }
+};
 //处理管理员主页路由
-router.get('/',function(req,res){
+router.get('/',auth,function(req,res,next){
     var page = req.query.page||1;
     var limit = 3;
     var pages = 0;
