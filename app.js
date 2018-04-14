@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/blog',function(err){
     }else{
         console.log('数据库连接成功');
         //打开服务器
-        app.listen(8080);
+        app.listen(80);
 
         console.log('服务器已打开');
     }

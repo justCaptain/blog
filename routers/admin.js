@@ -5,7 +5,6 @@ var Tags = require('../models/tags');
 var Article = require('../models/article');
 var basicAuth = require('basic-auth');
 
-
 //认证
 var auth = function(req, resp, next) {
     function unauthorized(resp) {
