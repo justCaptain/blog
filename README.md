@@ -5,7 +5,7 @@
 安装git、Node、npm、mongodb
 配置数据库
 ### 克隆代码
-clone 代码到本地    git clone https://github.com/newcaptain/blog
+clone 代码到本地    git clone https://github.com/newcaptain/blog.git
 ### 运行
 打开gitbash，执行  node app.js ， 打开浏览器，输入http://localhost 就可以查看项目了
 ## 技术构成
